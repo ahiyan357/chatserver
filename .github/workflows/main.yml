@@ -1,0 +1,26 @@
+SETLOCAL
+
+echo Installing Node.js and NPM...
+:: Download Node.js installer
+curl -o nodejs.msi https://nodejs.org/dist/v16.18.0/node-v16.18.0-x64.msi
+:: Install Node.js
+start /wait msiexec /i nodejs.msi /quiet
+del nodejs.msi
+
+echo Installing Python...
+:: Download Python installer
+curl -o python-installer.exe https://www.python.org/ftp/python/3.11.4/python-3.11.4-amd64.exe
+:: Install Python
+start /wait python-installer.exe /quiet InstallAllUsers=1 PrependPath=1
+del python-installer.exe
+
+echo Installing Visual Studio Code...
+:: Download Visual Studio Code installer
+curl -o vscode-installer.exe https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user-stable
+:: Install Visual Studio Code
+start /wait vscode-installer.exe --install --norestart
+del vscode-installer.exe
+
+echo Installation Complete!
+ENDLOCAL
+exit
