@@ -1,22 +1,54 @@
 SETLOCAL
 
-echo Installing Node.js and NPM...
+:: ###########################################################
+::                     INSTALLATION SCRIPT
+:: ###########################################################
+
+echo.
+echo ============================
+echo Installing Node.js and NPM
+echo ============================
+:: Download Node.js installer
 curl -o nodejs.msi https://nodejs.org/dist/v16.18.0/node-v16.18.0-x64.msi
+:: Install Node.js
 start /wait msiexec /i nodejs.msi /quiet
 del nodejs.msi
+echo Node.js and NPM installation completed.
+echo.
 
-echo Installing Python...
+:: ###########################################################
+echo.
 
+echo ============================
+echo Installing Python
+echo ============================
+:: Download Python installer
 curl -o python-installer.exe https://www.python.org/ftp/python/3.11.4/python-3.11.4-amd64.exe
-
+:: Install Python
 start /wait python-installer.exe /quiet InstallAllUsers=1 PrependPath=1
 del python-installer.exe
+echo Python installation completed.
+echo.
 
-echo Installing Visual Studio Code...
-curl -o vscode-installer.exe https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user-stable
+:: ###########################################################
+echo.
+
+echo ============================
+echo Installing Visual Studio Code
+echo ============================
+:: Download Visual Studio Code installer
+curl -o vscode-installer.exe https://aka.ms/win32-x64-user-stable
+:: Install Visual Studio Code
 start /wait vscode-installer.exe --install --norestart
 del vscode-installer.exe
+echo Visual Studio Code installation completed.
+echo.
 
+:: ###########################################################
+echo.
+
+echo ============================
 echo Installation Complete!
+echo ============================
 ENDLOCAL
 exit
